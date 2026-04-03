@@ -1,0 +1,88 @@
+export const menuItems = [
+  {
+    name: 'Pad Thai',
+    desc: 'El clásico que enamora: fideos de arroz salteados con tamarindo artesanal, terminado con cacahuate y vegetales frescos.',
+    img: './pad_thai.png',
+    tag: 'El Favorito',
+    category: 'platos',
+  },
+  {
+    name: 'Curry Verde',
+    desc: 'Albahaca, chiles verdes, galanga y lima kaffir. Fresco, herbal y picante. La esencia de Bangkok.',
+    img: './curry_verde.png',
+    tag: 'Picante',
+    category: 'platos',
+  },
+  {
+    name: 'Khao Soi',
+    desc: 'Sopa de fideos de Chiang Mai. Una explosión de coco y curry rojo con leche de coco y fideos crujientes.',
+    img: './khao_soi.png',
+    tag: 'Reconfortante',
+    category: 'platos',
+  },
+  {
+    name: 'Thai Dumplings',
+    desc: 'Rellenos de carne de res estilo laab, con menta y cilantro. Intensos, jugosos y con dip de chile.',
+    img: './dumplings.png',
+    tag: 'Más Pedido',
+    category: 'entradas',
+  },
+  {
+    name: 'Summer Rolls',
+    desc: 'Rollos de papel arroz con menta, col morada, ajonjolí negro, zanahoria y aderezo de maní.',
+    img: './summer_rolls.png',
+    tag: 'Fresco',
+    category: 'entradas',
+  },
+  {
+    name: 'Pad See Ew',
+    desc: 'Fideos de arroz caramelizados al wok con soya oscura, huevo de rancho y brócoli.',
+    img: './pad_see_ew.png',
+    tag: 'El Clásico',
+    category: 'platos',
+  },
+  {
+    name: 'Sticky Rice Mango',
+    desc: 'Arroz jazmín glutinoso bañado con leche de coco de primera y mango ataulfo fresco de temporada.',
+    img: './sticky_rice.png',
+    tag: 'Dulce',
+    category: 'postres',
+  },
+  {
+    name: 'Thai Ice Tea',
+    desc: 'Té negro tailandés finamente especiado, servido frío con un toque cremoso de leche de coco.',
+    img: './thai_ice_tea.png',
+    tag: 'Bebida',
+    category: 'bebidas',
+  },
+  {
+    name: 'Khao Pad',
+    desc: 'Arroz jazmín salteado en salsa tailandesa de albahaca con nuez de la India, ejotes, pimiento rojo, germen de soya, zanahoria y piña.',
+    img: './khao_pad.png',
+    tag: 'Salteado',
+    category: 'platos',
+  },
+  {
+    name: 'Butterfly Tea',
+    desc: 'Blue magic tea con leche de coco. Refrescante y visualmente espectacular.',
+    img: './butterfly_tea.png',
+    tag: 'Bebida',
+    category: 'bebidas',
+  },
+  {
+    name: 'Curry de Cacahuate',
+    desc: 'Curry artesanal con base de cacahuate tostado, leche de coco y especias thai. Cremoso e intenso.',
+    img: './curry_cacahuate.png',
+    tag: 'Especial',
+    category: 'platos',
+  },
+  {
+    name: 'Rollos Fritos',
+    desc: 'Rollos crujientes rellenos de vegetales y proteína thai, fritos al momento. Con dip de chile dulce.',
+    img: './rollos_fritos.png',
+    tag: 'Crujiente',
+    category: 'entradas',
+  },
+];
+
+export const categories = ['todos', 'entradas', 'platos', 'postres', 'bebidas'];
