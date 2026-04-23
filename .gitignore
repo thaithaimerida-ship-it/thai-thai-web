@@ -8,3 +8,6 @@ dist/
 Thumbs.db
 .vscode/
 .claude/settings.local.json
+
+# MCP config local
+.mcp.json
