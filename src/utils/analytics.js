@@ -15,28 +15,11 @@ export const trackEvent = (eventName, params = {}) => {
 
 export const trackConversion = (eventName, params = {}) => {
   if (typeof window.gtag === 'function') {
-    // Enviar a GA4
+    // Enviar a GA4 (Google Ads importa conversiones vía GA4 linking)
     window.gtag('event', eventName, {
       event_category: 'conversion',
       ...params,
     });
-
-    // Enviar a Google Ads según el tipo de conversión
-    if (eventName === 'reserva_completada') {
-      window.gtag('event', 'conversion', {
-        send_to: 'AW-17126999855/reserva_completada',
-        value: params.value || 855,
-        currency: 'MXN',
-      });
-    }
-
-    if (eventName === 'click_pedir_online') {
-      window.gtag('event', 'conversion', {
-        send_to: 'AW-17126999855/click_pedir_online',
-        value: params.value || 450,
-        currency: 'MXN',
-      });
-    }
   }
   if (import.meta.env.DEV) {
     console.log(`[GA4 + Google Ads conversion] ${eventName}`, params);
