@@ -11,3 +11,6 @@ Thumbs.db
 
 # MCP config local
 .mcp.json
+
+# Netlify CLI auto-generated
+.netlify/
