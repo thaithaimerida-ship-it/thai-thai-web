@@ -9,8 +9,10 @@ import Footer from './components/Footer';
 import ReservationModal from './components/ReservationModal';
 import MobileStickyBar from './components/MobileStickyBar';
 import AdminDashboard from './components/AdminDashboard';
+import CookieBanner from './components/CookieBanner';
 
 import { trackConversion } from './utils/analytics';
+import { fbqTrack } from './lib/fbpixel';
 
 const ORDER_URL = 'https://www.restaurantlogin.com/api/fb/_y5_p1_j';
 const WA_URL = 'https://wa.me/529999317457?text=Hola%2C%20quiero%20hacer%20un%20pedido!';
@@ -21,16 +23,19 @@ export default function App() {
 
   const handleOrder = (source) => {
     trackConversion('click_pedir_online', { source, value: 5 });
+    fbqTrack('InitiateCheckout', { content_category: 'delivery' });
     window.open(ORDER_URL, '_blank', 'noopener,noreferrer');
   };
 
   const handleWhatsApp = (source) => {
     trackConversion('click_whatsapp', { source, value: 3 });
+    fbqTrack('Lead', { content_category: 'whatsapp_contact' });
     window.open(WA_URL, '_blank', 'noopener,noreferrer');
   };
 
   const openReserve = () => {
     trackConversion('click_reservar', { value: 10 });
+    fbqTrack('Schedule', { content_category: 'table_reservation' });
     setReserveOpen(true);
   };
 
@@ -67,6 +72,8 @@ export default function App() {
       <MobileStickyBar onReserve={openReserve} onOrder={handleOrder} />
 
       <ReservationModal isOpen={reserveOpen} onClose={() => setReserveOpen(false)} />
+
+      <CookieBanner />
     </div>
   );
 }

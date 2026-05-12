@@ -62,7 +62,7 @@ export default function Navbar({ onReserve, onOrder, onWhatsApp }) {
             </button>
             <button
               onClick={() => onOrder('navbar')}
-              className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-orange-900/40 animate-glow-pulse"
+              className="bg-orange-700 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-orange-900/40 animate-glow-pulse"
             >
               <ShoppingBag size={16} /> Pedir Online
             </button>
@@ -107,7 +107,7 @@ export default function Navbar({ onReserve, onOrder, onWhatsApp }) {
           </button>
           <button
             onClick={() => { setMenuOpen(false); onOrder('mobile_menu'); }}
-            className="mt-6 w-full bg-orange-600 text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3"
+            className="mt-6 w-full bg-orange-700 text-white py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3"
           >
             <ShoppingBag size={22} /> Pedir en Línea
           </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Clock, Mail, Phone, MessageCircle, Facebook, Instagram, CalendarDays, ShoppingBag, Sparkles } from 'lucide-react';
 import { trackConversion } from '../utils/analytics';
+import { fbqTrack } from '../lib/fbpixel';
 
 export default function Footer({ onWhatsApp, onOrder, onReserve }) {
   return (
@@ -89,7 +90,10 @@ export default function Footer({ onWhatsApp, onOrder, onReserve }) {
                 href="https://maps.app.goo.gl/qYaGMBw4PyXAWb8d6"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackConversion('click_ubicacion', { value: 2 })}
+                onClick={() => {
+                  trackConversion('click_ubicacion', { value: 2 });
+                  fbqTrack('FindLocation');
+                }}
                 className="hover:text-orange-400 transition-colors"
               >
                 Calle 30 No. 351 Col. Emiliano Zapata Norte

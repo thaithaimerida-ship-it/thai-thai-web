@@ -29,7 +29,7 @@ export default function HeroSection({ onOrder, onReserve }) {
 
         {/* Headline */}
         <h1 className="animate-fade-up-delay-1 font-display text-3xl sm:text-4xl md:text-5xl text-white mb-6 leading-[1.1] drop-shadow-2xl">
-          Tailandia despierta
+          Tailandia despierta{' '}
           <br />
           <span className="text-orange-500">en cada plato</span>
         </h1>
@@ -45,7 +45,7 @@ export default function HeroSection({ onOrder, onReserve }) {
         <div className="animate-fade-up-delay-3 flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => onOrder('hero')}
-            className="bg-orange-600 hover:bg-orange-500 active:scale-95 text-white font-black px-10 py-5 rounded-2xl shadow-2xl shadow-orange-900/40 uppercase text-xs tracking-widest flex items-center justify-center gap-3 transition-all duration-300 animate-glow-pulse"
+            className="bg-orange-700 hover:bg-orange-600 active:scale-95 text-white font-black px-10 py-5 rounded-2xl shadow-2xl shadow-orange-900/40 uppercase text-xs tracking-widest flex items-center justify-center gap-3 transition-all duration-300 animate-glow-pulse"
           >
             Pedir en Línea <ChevronRight size={18} />
           </button>

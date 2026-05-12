@@ -46,7 +46,7 @@ export default function MenuSection({ onOrder }) {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 activeCategory === cat
-                  ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/30'
+                  ? 'bg-orange-700 text-white shadow-lg shadow-orange-900/30'
                   : 'bg-zinc-800 text-slate-400 hover:bg-zinc-700 hover:text-white'
               }`}
             >
@@ -86,7 +86,7 @@ export default function MenuSection({ onOrder }) {
                 </p>
                 <button
                   onClick={() => onOrder(`item_${item.name}`)}
-                  className="w-full py-3 rounded-xl bg-zinc-800/80 text-white font-bold group-hover:bg-orange-600 transition-all duration-300 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest border border-white/5 group-hover:border-orange-500"
+                  className="w-full py-3 rounded-xl bg-zinc-800/80 text-white font-bold group-hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest border border-white/5 group-hover:border-orange-500"
                 >
                   <ShoppingBag size={14} /> Pedir ahora
                 </button>

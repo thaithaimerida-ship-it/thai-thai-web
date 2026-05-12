@@ -12,7 +12,7 @@ export default function MobileStickyBar({ onReserve, onOrder }) {
       </button>
       <button
         onClick={() => onOrder('mobile_sticky')}
-        className="flex-1 bg-orange-600 hover:bg-orange-500 active:scale-95 text-white py-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 text-sm transition-all shadow-lg shadow-orange-900/30"
+        className="flex-1 bg-orange-700 hover:bg-orange-600 active:scale-95 text-white py-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 text-sm transition-all shadow-lg shadow-orange-900/30"
       >
         <ShoppingBag size={18} /> Pedir Online
       </button>
