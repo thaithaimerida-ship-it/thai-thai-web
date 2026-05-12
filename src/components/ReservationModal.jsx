@@ -60,6 +60,14 @@ const occasions = [
   'Otro',
 ];
 
+const validatePhone = (digits, countryCode) => {
+  if (digits.length === 0) return '';
+  if (countryCode === '52') {
+    return digits.length === 10 ? '' : 'Agrega tu número a 10 dígitos';
+  }
+  return (digits.length < 9 || digits.length > 15) ? 'Ingresa entre 9 y 15 dígitos' : '';
+};
+
 const initialState = {
   name: '',
   email: '',
@@ -127,11 +135,7 @@ export default function ReservationModal({ isOpen, onClose }) {
     if (field === 'phone') {
       const digits = e.target.value.replace(/\D/g, '');
       setForm((prev) => ({ ...prev, phone: digits }));
-      if (digits.length > 0 && (digits.length < 9 || digits.length > 15)) {
-        setPhoneError('Ingresa entre 9 y 15 dígitos');
-      } else {
-        setPhoneError('');
-      }
+      setPhoneError(validatePhone(digits, form.countryCode));
       return;
     }
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -142,8 +146,9 @@ export default function ReservationModal({ isOpen, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.phone.length < 9 || form.phone.length > 15) {
-      setPhoneError('Ingresa entre 9 y 15 dígitos');
+    const err = validatePhone(form.phone, form.countryCode);
+    if (err) {
+      setPhoneError(err);
       return;
     }
 
@@ -205,8 +210,8 @@ export default function ReservationModal({ isOpen, onClose }) {
             <div className="w-16 h-16 rounded-full bg-emerald-600/15 flex items-center justify-center">
               <CheckCircle size={36} className="text-emerald-400" />
             </div>
-            <h4 className="font-display text-xl text-white">Reserva confirmada</h4>
-            <p className="font-serif italic text-slate-400 text-sm">Revisa tu WhatsApp</p>
+            <h4 className="font-display text-xl text-white">¡Reservación confirmada!</h4>
+            <p className="font-serif italic text-slate-400 text-sm">Revisa tu correo electrónico.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -224,16 +229,19 @@ export default function ReservationModal({ isOpen, onClose }) {
             </div>
 
             {/* 2. Email */}
-            <div className="relative">
-              <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
-              <input
-                required
-                type="email"
-                placeholder="Correo electrónico"
-                value={form.email}
-                onChange={handleChange('email')}
-                className="w-full bg-zinc-950 border border-white/8 hover:border-white/15 focus:border-orange-600/50 rounded-xl pl-11 pr-4 py-4 text-white placeholder-slate-500 outline-none transition-colors text-sm"
-              />
+            <div>
+              <div className="relative">
+                <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+                <input
+                  required
+                  type="email"
+                  placeholder="Correo electrónico"
+                  value={form.email}
+                  onChange={handleChange('email')}
+                  className="w-full bg-zinc-950 border border-white/8 hover:border-white/15 focus:border-orange-600/50 rounded-xl pl-11 pr-4 py-4 text-white placeholder-slate-500 outline-none transition-colors text-sm"
+                />
+              </div>
+              <p className="text-slate-500 text-xs mt-1.5 pl-1">Te enviaremos la confirmación de tu reserva a este correo</p>
             </div>
 
             {/* 3. Teléfono con selector de país */}
@@ -265,6 +273,7 @@ export default function ReservationModal({ isOpen, onClose }) {
                           type="button"
                           onClick={() => {
                             setForm((prev) => ({ ...prev, countryCode: c.code }));
+                            setPhoneError(validatePhone(form.phone, c.code));
                             setCountryOpen(false);
                           }}
                           className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-white/10 transition-colors ${form.countryCode === c.code ? 'bg-orange-600/20 text-orange-300' : 'text-white'}`}
@@ -293,7 +302,9 @@ export default function ReservationModal({ isOpen, onClose }) {
               {phoneError ? (
                 <p className="text-red-400 text-xs mt-1.5 pl-1">{phoneError}</p>
               ) : (
-                <p className="text-slate-500 text-xs mt-1.5 pl-1">Te enviaremos la confirmación por WhatsApp a este número</p>
+                <p className="text-slate-500 text-xs mt-1.5 pl-1">
+                  {form.countryCode === '52' ? 'Agrega tu número a 10 dígitos' : 'Ingresa tu número de teléfono'}
+                </p>
               )}
             </div>
 
