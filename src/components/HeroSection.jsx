@@ -10,7 +10,8 @@ export default function HeroSection({ onOrder, onReserve }) {
 
       {/* Imagen de fondo */}
       <img
-        src="./fondo.png"
+        src="/fondo.webp"
+        fetchpriority="high"
         className="absolute inset-0 w-full h-full object-cover opacity-55 animate-slow-zoom"
         alt="Cocina Thai Thai Mérida"
         onError={(e) => {
